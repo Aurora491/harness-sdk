@@ -139,7 +139,7 @@ the running agent but not its signal.
 
   Pass the same event to a request-disconnect or "Stop" button handler when
   cancellation is user-driven. The agent never sets or clears the caller-owned
-  event. <Syntax py="agent.cancel()" /> is thread-safe and idempotent, but only
+  event. <Syntax py="agent.cancel()" ts="agent.cancel()" /> is thread-safe and idempotent, but only
   call it for a known-running invocation. Calling it while the agent is idle
   cancels the next invocation.
 
