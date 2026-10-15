@@ -125,9 +125,9 @@ agent("What is the square root of 1764")
 
 The [Python SDK README](strands-py/) covers tools, model providers, MCP, and bidirectional streaming.
 
-### TypeScript integration
+### TypeScript SDK
 
-To build a Strands agent in TypeScript, install the SDK in a Node.js 22+ project:
+To build a Strands agent in TypeScript, install the SDK in a Node.js 22+ ESM project (`"type": "module"`):
 
 ```bash
 npm install @strands-agents/sdk
@@ -141,6 +141,7 @@ const result = await agent.invoke('What is the square root of 1764?')
 console.log(result)
 ```
 
+`new Agent()` uses Amazon Bedrock by default, so configure AWS credentials or pass another model.
 Start with the [TypeScript quickstart](https://strandsagents.com/docs/user-guide/sdk/quickstart/typescript/)
 to configure a model provider, run your first agent, and add tools. Use the
 [TypeScript API reference](https://strandsagents.com/docs/api/typescript/) for the full
