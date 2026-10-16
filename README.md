@@ -125,7 +125,7 @@ agent("What is the square root of 1764")
 
 The [Python SDK README](strands-py/) covers tools, model providers, MCP, and bidirectional streaming.
 
-### TypeScript SDK
+### TypeScript
 
 To build a Strands agent in TypeScript, install the SDK in a Node.js 22+ ESM project (`"type": "module"`):
 
