@@ -51,6 +51,7 @@ function injectRedirect(html: string, target: string): string {
  * Browsers still redirect immediately, while clients that ignore JavaScript
  * and meta refresh receive the same rendered guide content at the legacy URL.
  * The base element keeps relative links anchored to the destination route.
+ * Destination files are located assuming `build.format: 'directory'`.
  */
 export async function writeLegacyRedirectPages(
   outputDir: string,
@@ -63,7 +64,9 @@ export async function writeLegacyRedirectPages(
     internalRedirects.map(async ([source, target]) => {
       const targetFile = outputFile(outputDir, target, base)
       const sourceFile = outputFile(outputDir, source)
-      const html = await fs.readFile(targetFile, 'utf-8')
+      const html = await fs.readFile(targetFile, 'utf-8').catch((error: unknown) => {
+        throw new Error(`legacy redirect ${source} -> ${target}: cannot read ${targetFile}`, { cause: error })
+      })
 
       await fs.mkdir(path.dirname(sourceFile), { recursive: true })
       await fs.writeFile(sourceFile, injectRedirect(html, target))
