@@ -203,6 +203,7 @@ export { ClassifierStrategy, FallbackStrategy, ModelRouter, RoutingCandidate } f
 export type {
   CandidateInput,
   ClassifierStrategyOptions,
+  FallbackStrategyOptions,
   ModelRouterOptions,
   RoutingAttempt,
   RoutingCandidateOptions,
